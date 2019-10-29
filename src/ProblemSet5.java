@@ -19,7 +19,16 @@
 public class ProblemSet5 {
     
     public static void main(String[] args) {
-        
+        ProblemSet5 ps = new ProblemSet5();
+		
+		String in;
+		String out;
+		String text;
+		int n;
+		String target;
+		char suffix;
+		int count = 0;
+		
     }
     
     /*
@@ -30,7 +39,19 @@ public class ProblemSet5 {
      */
     
     public String surroundMe(String in, String out) {
-
+		final String firstHalf;
+		final String secondHalf;
+		final String newString;
+		// iniliazing values
+		
+		if(in == null || out == null || out.length() !=4){
+			return in;
+		}else{
+			firstHalf = out.substring(0,2);
+			secondHalf = out.substring(2,4);
+			newString = firstHalf + in + secondHalf;
+			return newString;
+		}
     }
     
     /*

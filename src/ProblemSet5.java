@@ -28,6 +28,9 @@ public class ProblemSet5 {
 		String target;
 		char suffix;
 		int count = 0;
+	    
+       System.out.println("\nExercise 1: " + ps.surroundMe("naya", "playa"));
+       System.out.println("\nExercise 2: " + ps.endsMeet("ultima", 2));
 		
     }
     
@@ -39,19 +42,19 @@ public class ProblemSet5 {
      */
     
     public String surroundMe(String in, String out) {
-		final String firstHalf;
-		final String secondHalf;
-		final String newString;
-		// iniliazing values
+	final String firstHalf;
+	final String secondHalf;
+	final String newString;
+	// iniliazing values
 		
-		if(in == null || out == null || out.length() !=4){
-			return in;
-		}else{
-			firstHalf = out.substring(0,2);
-			secondHalf = out.substring(2,4);
-			newString = firstHalf + in + secondHalf;
-			return newString;
-		}
+	if(in == null || out == null || out.length() !=4){
+		return in;
+	}else{
+		firstHalf = out.substring(0,2);
+		secondHalf = out.substring(2,4);
+		newString = firstHalf + in + secondHalf;
+		return newString;
+	}
     }
     
     /*
@@ -62,7 +65,14 @@ public class ProblemSet5 {
      */
     
     public String endsMeet(String text, int n) {
-
+	if(text == null || text.length() >= 10 || text.length() =< 1 || n =< 1 || n >= text.length()){
+        	return text;
+      	}else{
+        	String first = text.substring(0, n);
+        	String last = text.substring(text.length()-n, text.length());
+        	String newString = first + last;
+        	return newString;
+      }
     }
     
     /*

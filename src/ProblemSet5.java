@@ -32,7 +32,7 @@ public class ProblemSet5 {
        System.out.println("\nExercise 1: " + ps.surroundMe("naya", "playa"));
        System.out.println("\nExercise 2: " + ps.endsMeet("ultima", 2));
 	   System.out.println("\nExercise 3: " + ps.middleMan("ImACatPerson"));
-       //System.out.println("\nExercise 4: " + ps.isCentered("ultima", 2));
+       System.out.println("\nExercise 4: " + ps.isCentered("ImACatPerson", "ButIalsoLikeDogs"));
 	   //System.out.println("\nExercise 5: " + ps.countMe("naya", "playa"));
        //System.out.println("\nExercise 6: " + ps.triplets("ultima", 2));
 	   //System.out.println("\nExercise 7: " + ps.addMe("naya", "playa"));
@@ -78,7 +78,7 @@ public class ProblemSet5 {
       	}else{
         	String first = text.substring(0, n);
         	String last = text.substring(text.length()-n, text.length());
-        	String newString = first + last;
+        	String rString = first + last;
         	return newString;
       }
     }
@@ -90,15 +90,15 @@ public class ProblemSet5 {
      */
     
     public String middleMan(String text) {
-		if(text == null || text.length() <3 || text.length() % 2 == 0){
+		if(text == null || text.length() > 3 || text.length() % 2 == 0){
 			return text;
 		}else{
 			int midNumber = text.length() / 2;
 			char first = text.charAt(midNumber - 1);
 			char second = text.charAt(midNumber);
 			char third = text.charAt(midNumber + 1);
-			String newChar = String.valueOf(first) + String.valueOf(second) + String.valueOf(third);
-			return newChar;
+			String threeChar = String.valueOf(first) + String.valueOf(second) + String.valueOf(third);
+			return threeChar;
 		}
     }
 	
@@ -110,7 +110,20 @@ public class ProblemSet5 {
      */
     
     public boolean isCentered(String text, String target) {
-		return newString;
+		if(text == null || text.length() < 3 || text.length() % 2 == 0 || target == null || target.length() < 3 || target.length() > 3){
+			return false;
+		}else{
+			int midNumber = text.length() / 2;
+			char first = text.charAt(midNumber - 1);
+			char second = text.charAt(midNumber);
+			char third = text.charAt(midNumber + 1);
+			String threeChar = String.valueOf(first) + String.valueOf(second) + String.valueOf(third);
+			if(threeChar.equals(threeChar)){
+				return true;
+			}else{
+				return false;
+			}
+		}
     }
     
     /*

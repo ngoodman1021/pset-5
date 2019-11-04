@@ -33,7 +33,7 @@ public class ProblemSet5 {
        System.out.println("\nExercise 2: " + ps.endsMeet("ultima", 2));
 	   System.out.println("\nExercise 3: " + ps.middleMan("ImACatPerson"));
        System.out.println("\nExercise 4: " + ps.isCentered("ImACatPerson", "ButIalsoLikeDogs"));
-	   //System.out.println("\nExercise 5: " + ps.countMe("naya", "playa"));
+	   System.out.println("\nExercise 5: " + ps.countMe("I want to go buy a cake", 'o'));
        //System.out.println("\nExercise 6: " + ps.triplets("ultima", 2));
 	   //System.out.println("\nExercise 7: " + ps.addMe("naya", "playa"));
        //System.out.println("\nExercise 8: " + ps.sequence("ultima", 2));
@@ -50,20 +50,22 @@ public class ProblemSet5 {
      */
     
     public String surroundMe(String in, String out) {
-	final String firstHalf;
-	final String secondHalf;
-	final String newString;
-	// iniliazing values
 		
-	if(in == null || out == null || out.length() !=4){
-		return in;
-	}else{
-		firstHalf = out.substring(0,2);
-		secondHalf = out.substring(2,4);
-		newString = firstHalf + in + secondHalf;
-		return newString;
+		String firstHalf;
+		String secondHalf;
+		String newString;
+		// iniliazing values
+		
+		if(in == null || out == null || out.length() !=4){
+			return in;
+		}else{
+			firstHalf = out.substring(0,2);
+			secondHalf = out.substring(2,4);
+			newString = firstHalf + in + secondHalf;
+			return newString;
+		}
+    
 	}
-    }
     
     /*
      * Exercise 2.
@@ -73,15 +75,18 @@ public class ProblemSet5 {
      */
     
     public String endsMeet(String text, int n) {
+	
 	if(text == null || text.length() > 10 || text.length() < 1 || n < 1 || n > text.length()){
         	return text;
       	}else{
         	String first = text.substring(0, n);
         	String last = text.substring(text.length()-n, text.length());
-        	String rString = first + last;
-        	return newString;
-      }
-    }
+        	String newString = first + last;
+        	
+			return newString;
+		}
+    
+	}
 	
 	/*
      * Exercise 3.
@@ -90,17 +95,21 @@ public class ProblemSet5 {
      */
     
     public String middleMan(String text) {
+		
 		if(text == null || text.length() > 3 || text.length() % 2 == 0){
 			return text;
+		
 		}else{
 			int midNumber = text.length() / 2;
 			char first = text.charAt(midNumber - 1);
 			char second = text.charAt(midNumber);
 			char third = text.charAt(midNumber + 1);
 			String threeChar = String.valueOf(first) + String.valueOf(second) + String.valueOf(third);
+			
 			return threeChar;
 		}
-    }
+    
+	}
 	
 	/*
      * Exercise 4.
@@ -110,33 +119,58 @@ public class ProblemSet5 {
      */
     
     public boolean isCentered(String text, String target) {
+		
 		if(text == null || text.length() < 3 || text.length() % 2 == 0 || target == null || target.length() < 3 || target.length() > 3){
 			return false;
+		
 		}else{
+			
 			int midNumber = text.length() / 2;
 			char first = text.charAt(midNumber - 1);
 			char second = text.charAt(midNumber);
 			char third = text.charAt(midNumber + 1);
 			String threeChar = String.valueOf(first) + String.valueOf(second) + String.valueOf(third);
+			
 			if(threeChar.equals(threeChar)){
 				return true;
+			
 			}else{
 				return false;
 			}
 		}
-    }
     
-    /*
+	}
+    
+	/*
      * Exercise 5.
      * 
      * Given a string and a character, compute the number of words that end in suffix.
      */
     
     public int countMe(String text, char suffix) {
-		return newString;
-    }
-    
-    /*
+		
+		text = text.toLowerCase();
+		suffix = Character.toLowerCase(suffix);
+		String sufString = String.valueOf(suffix);
+		int count = 0;
+		
+		String word[] = text.split("");
+		
+		if(suffix <= 'a' || suffix >= 'z' || text == null){
+			return -1;
+		
+			}else{
+				for(int i = 0; i < word.length; i++){
+				
+					if(word[i].endsWith(sufString)){
+						count++;
+					}
+				}
+			return count;
+		}
+	}
+	
+	/*
      * Exercise 6.
      * 
      * Given a string, compute the number of triplets in text.

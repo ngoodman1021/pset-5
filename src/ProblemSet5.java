@@ -29,12 +29,12 @@ public class ProblemSet5 {
 		char suffix;
 		int count = 0;
 	    
-       System.out.println("\nExercise 1: " + ps.surroundMe("naya", "playa"));
-       System.out.println("\nExercise 2: " + ps.endsMeet("ultima", 2));
-	   System.out.println("\nExercise 3: " + ps.middleMan("ImACatPerson"));
-       System.out.println("\nExercise 4: " + ps.isCentered("ImACatPerson", "ButIalsoLikeDogs"));
-	   System.out.println("\nExercise 5: " + ps.countMe("I want to go buy a cake", 'o'));
-       //System.out.println("\nExercise 6: " + ps.triplets("ultima", 2));
+       System.out.println("\nExercise 1: " + ps.surroundMe("", ""));
+       System.out.println("\nExercise 2: " + ps.endsMeet("", ));
+	   System.out.println("\nExercise 3: " + ps.middleMan(""));
+       System.out.println("\nExercise 4: " + ps.isCentered("", ""));
+	   System.out.println("\nExercise 5: " + ps.countMe("", ''));
+       System.out.println("\nExercise 6: " + ps.triplets(""));
 	   //System.out.println("\nExercise 7: " + ps.addMe("naya", "playa"));
        //System.out.println("\nExercise 8: " + ps.sequence("ultima", 2));
 	   //System.out.println("\nExercise 9: " + ps.intertwine("naya", "playa"));
@@ -177,7 +177,19 @@ public class ProblemSet5 {
      */
     
     public int triplets(String text) {
-		return newString;
+		if(text == null){
+			return -1;
+		}else{
+			int count = 0;
+			
+			for(int i = 0; i <= text.length() - 3; i++){
+				if(text.charAt(i) == text.charAt(i +1) && text.charAt(i) == text.charAt(i +2)){
+					count ++;
+					i += 2;
+				}
+			}
+			return count;
+		}
     }
     
     /*

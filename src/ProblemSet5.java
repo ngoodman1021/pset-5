@@ -101,4 +101,76 @@ public class ProblemSet5 {
 			return newChar;
 		}
     }
+	
+	/*
+     * Exercise 4.
+     * 
+     * Given two strings, determine whether or not target is equivalent to the middle
+     * three characters of text.
+     */
+    
+    public boolean isCentered(String text, String target) {
+		return newString;
+    }
+    
+    /*
+     * Exercise 5.
+     * 
+     * Given a string and a character, compute the number of words that end in suffix.
+     */
+    
+    public int countMe(String text, char suffix) {
+		return newString;
+    }
+    
+    /*
+     * Exercise 6.
+     * 
+     * Given a string, compute the number of triplets in text.
+     */
+    
+    public int triplets(String text) {
+		return newString;
+    }
+    
+    /*
+     * Exercise 7.
+     * 
+     * Given a string, compute the sum of the digits in text.
+     */
+    
+    public long addMe(String text) {
+		return newString;
+    }
+    
+    /*
+     * Exercise 8.
+     * 
+     * Given a string, compute the length of the longest sequence.
+     */
+    
+    public long sequence(String text) {
+		return newString;
+    }
+    
+    /*
+     * Exercise 9.
+     * 
+     * Given two strings, return a new string built by intertwining each of the
+     * characters of a and b.
+     */
+    
+    public String intertwine(String a, String b) {
+		return newString;
+    }
+    
+    /*
+     * Exercise 10.
+     * 
+     * Given a string, determine whether or not it is a palindrome.
+     */
+    
+    public boolean isPalindrome(String text) {
+		return newString;
+    }
 }

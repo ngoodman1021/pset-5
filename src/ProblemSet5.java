@@ -39,6 +39,8 @@ public class ProblemSet5 {
        System.out.println("\nExercise 8: " + ps.sequence());
        System.out.println("\nExercise 9: " + ps.intertwine());
        System.out.println("\nExercise 10: " + ps.isPalindrome());
+	    
+	// fill in what is needed for each exercise :)
 	   
     }
     
@@ -218,7 +220,20 @@ public class ProblemSet5 {
      */
     
     public long sequence(String text) {
-		return newString;
+	if (text != null) {
+            long longSeq = 0;
+            int seqLen = 0;
+            for (int i = 0; i < text.length() - 1; i++) {
+                if (text.charAt(i) == text.charAt(i + 1)) {
+                    seqLen += 1;
+                }
+                if (seqLen > longSeq) {
+                    longSeq = seqLen;
+                }
+            }
+            return longSeq;
+        }
+        return -1;
     }
     
     /*

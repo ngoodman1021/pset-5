@@ -29,16 +29,16 @@ public class ProblemSet5 {
 		char suffix;
 		int count = 0;
 	    
-       System.out.println("\nExercise 1: " + ps.surroundMe("", ""));
-       System.out.println("\nExercise 2: " + ps.endsMeet("", ));
-	   System.out.println("\nExercise 3: " + ps.middleMan(""));
-       System.out.println("\nExercise 4: " + ps.isCentered("", ""));
-	   System.out.println("\nExercise 5: " + ps.countMe("", ''));
-       System.out.println("\nExercise 6: " + ps.triplets(""));
-	   //System.out.println("\nExercise 7: " + ps.addMe("naya", "playa"));
-       //System.out.println("\nExercise 8: " + ps.sequence("ultima", 2));
-	   //System.out.println("\nExercise 9: " + ps.intertwine("naya", "playa"));
-       //System.out.println("\nExercise 10: " + ps.isPalindrome("ultima", 2));
+       System.out.println("\nExercise 1: " + ps.surroundMe());
+       System.out.println("\nExercise 2: " + ps.endsMeet());
+       System.out.println("\nExercise 3: " + ps.middleMan());
+       System.out.println("\nExercise 4: " + ps.isCentered());
+       System.out.println("\nExercise 5: " + ps.countMe());
+       System.out.println("\nExercise 6: " + ps.triplets());
+       System.out.println("\nExercise 7: " + ps.addMe());
+       System.out.println("\nExercise 8: " + ps.sequence());
+       System.out.println("\nExercise 9: " + ps.intertwine());
+       System.out.println("\nExercise 10: " + ps.isPalindrome());
 	   
     }
     
@@ -199,7 +199,16 @@ public class ProblemSet5 {
      */
     
     public long addMe(String text) {
-		return newString;
+	if (text != null) {
+            long sum = 0;
+            for (int i = 0; i < text.length(); i++) {
+                if (text.charAt(i) >= 48 && text.charAt(i) <= 57) {
+                    sum += Character.getNumericValue(text.charAt(i));
+                }
+            }
+            return sum;
+        }
+        return -1;
     }
     
     /*

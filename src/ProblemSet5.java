@@ -28,6 +28,7 @@ public class ProblemSet5 {
 		String target;
 		char suffix;
 		int count = 0;
+		//values
 	    
        System.out.println("\nExercise 1: " + ps.surroundMe());
        System.out.println("\nExercise 2: " + ps.endsMeet());
@@ -203,9 +204,10 @@ public class ProblemSet5 {
     public long addMe(String text) {
 	if (text != null) {
             long sum = 0;
-            for (int i = 0; i < text.length(); i++) {
-                if (text.charAt(i) >= 48 && text.charAt(i) <= 57) {
-                    sum += Character.getNumericValue(text.charAt(i));
+            
+		for (int i = 0; i < text.length(); i++) {
+			if (text.charAt(i) >= 48 && text.charAt(i) <= 57) {
+                    		sum += Character.getNumericValue(text.charAt(i));
                 }
             }
             return sum;
@@ -223,11 +225,13 @@ public class ProblemSet5 {
 	if (text != null) {
             long longSeq = 0;
             int seqLen = 0;
-            for (int i = 0; i < text.length() - 1; i++) {
+            
+	    for (int i = 0; i < text.length() - 1; i++) {
                 if (text.charAt(i) == text.charAt(i + 1)) {
                     seqLen += 1;
                 }
-                if (seqLen > longSeq) {
+               	
+		if (seqLen > longSeq) {
                     longSeq = seqLen;
                 }
             }
@@ -247,13 +251,15 @@ public class ProblemSet5 {
 	if (a != null && b != null) {
             String outString = "";
             int i;
-            for (i = 0; i < a.length() && i < b.length(); i++) {
+            
+	    for (i = 0; i < a.length() && i < b.length(); i++) {
                 outString += a.charAt(i);
                 outString += b.charAt(i);
             }
-            outString += a.substring(i, a.length());
-            outString += b.substring(i, b.length());
-            return outString;
+            
+		outString += a.substring(i, a.length());
+            	outString += b.substring(i, b.length());
+            	return outString;
         }
         return null;
     }
@@ -265,12 +271,14 @@ public class ProblemSet5 {
      */
     
     public boolean isPalindrome(String text) {
-		if (text != null) {
+	if (text != null) {
             String reverse = "";
-            for (int i = text.length() - 1; i >= 0; i--) {
+            
+	    for (int i = text.length() - 1; i >= 0; i--) {
                 reverse += text.charAt(i);
             }
-            if (reverse.equals(text)) {
+            
+		if (reverse.equals(text)) {
                 return true;
             }
         }

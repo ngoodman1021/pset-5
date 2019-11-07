@@ -244,7 +244,18 @@ public class ProblemSet5 {
      */
     
     public String intertwine(String a, String b) {
-		return newString;
+	if (a != null && b != null) {
+            String outString = "";
+            int i;
+            for (i = 0; i < a.length() && i < b.length(); i++) {
+                outString += a.charAt(i);
+                outString += b.charAt(i);
+            }
+            outString += a.substring(i, a.length());
+            outString += b.substring(i, b.length());
+            return outString;
+        }
+        return null;
     }
     
     /*
@@ -254,6 +265,15 @@ public class ProblemSet5 {
      */
     
     public boolean isPalindrome(String text) {
-		return newString;
+		if (text != null) {
+            String reverse = "";
+            for (int i = text.length() - 1; i >= 0; i--) {
+                reverse += text.charAt(i);
+            }
+            if (reverse.equals(text)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

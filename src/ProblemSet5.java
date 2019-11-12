@@ -32,7 +32,7 @@ public class ProblemSet5 {
 	    
       System.out.println("\nExercise 1: " + ps.surroundMe("abc", "123"));
       System.out.println("\nExercise 2: " + ps.endsMeet("abc", -1));
-      System.out.println("\nExercise 3: " + ps.middleMan("a"));
+      System.out.println("\nExercise 3: " + ps.middleMan("abc"));
       System.out.println("\nExercise 4: " + ps.isCentered("abcdefg", "cd"));
       System.out.println("\nExercise 5: " + ps.countMe("abc$ def$", '$'));
       System.out.println("\nExercise 6: " + ps.triplets("abc"));
@@ -40,7 +40,7 @@ public class ProblemSet5 {
       System.out.println("\nExercise 8: " + ps.sequence("abbcccdddd"));
       System.out.println("\nExercise 9: " + ps.intertwine("abc", "12345"));
       System.out.println("\nExercise 10: " + ps.isPalindrome("Madam"));
-	   
+	   //comment out as needed 
     }
     
     /*

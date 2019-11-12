@@ -30,18 +30,16 @@ public class ProblemSet5 {
 		int count = 0;
 		//values
 	    
-       System.out.println("\nExercise 1: " + ps.surroundMe());
-       System.out.println("\nExercise 2: " + ps.endsMeet());
-       System.out.println("\nExercise 3: " + ps.middleMan());
-       System.out.println("\nExercise 4: " + ps.isCentered());
-       System.out.println("\nExercise 5: " + ps.countMe());
-       System.out.println("\nExercise 6: " + ps.triplets());
-       System.out.println("\nExercise 7: " + ps.addMe());
-       System.out.println("\nExercise 8: " + ps.sequence());
-       System.out.println("\nExercise 9: " + ps.intertwine());
-       System.out.println("\nExercise 10: " + ps.isPalindrome());
-	    
-	// fill in what is needed for each exercise :)
+      System.out.println("\nExercise 1: " + ps.surroundMe("abc", "123"));
+      System.out.println("\nExercise 2: " + ps.endsMeet("abc", -1));
+      System.out.println("\nExercise 3: " + ps.middleMan("a"));
+      System.out.println("\nExercise 4: " + ps.isCentered("abcdefg", "cd"));
+      System.out.println("\nExercise 5: " + ps.countMe("abc$ def$", '$'));
+      System.out.println("\nExercise 6: " + ps.triplets("abc"));
+      System.out.println("\nExercise 7: " + ps.addMe("123 abc 123"));
+      System.out.println("\nExercise 8: " + ps.sequence("abbcccdddd"));
+      System.out.println("\nExercise 9: " + ps.intertwine("abc", "12345"));
+      System.out.println("\nExercise 10: " + ps.isPalindrome("Madam"));
 	   
     }
     
@@ -202,17 +200,23 @@ public class ProblemSet5 {
      */
     
     public long addMe(String text) {
-	if (text != null) {
-            long sum = 0;
-            
-		for (int i = 0; i < text.length(); i++) {
-			if (text.charAt(i) >= 48 && text.charAt(i) <= 57) {
-                    		sum += Character.getNumericValue(text.charAt(i));
-                }
-            }
-            return sum;
-        }
-        return -1;
+       char a;
+       int sum = 0;
+       
+       if(text==null){
+         return -1;
+       
+       }else{
+         for(int i = 0; i < text.length(); i++){
+           a = text.charAt(i);
+           int aInt = Character.getNumericValue(a);
+           
+           if(!Character.isAlphabetic(a) && aInt!=-1){
+             sum += aInt;
+           }
+         }
+         return sum;
+       }
     }
     
     /*
@@ -222,66 +226,146 @@ public class ProblemSet5 {
      */
     
     public long sequence(String text) {
-	if (text != null) {
-            long longSeq = 0;
-            int seqLen = 0;
-            
-	    for (int i = 0; i < text.length() - 1; i++) {
-                if (text.charAt(i) == text.charAt(i + 1)) {
-                    seqLen += 1;
-                }
-               	
-		if (seqLen > longSeq) {
-                    longSeq = seqLen;
-                }
-            }
-            return longSeq;
-        }
+       
+      int count = 0;
+      double restart = 0;
+      int count2 = 0;
+      if(text==null){
         return -1;
+      
+      }else if(text.equals("")){
+        return count;
+      
+      }else{
+        for(int i = 1; i < text.length(); i++){
+          char letter = text.charAt(i-1);
+          char letter2 = text.charAt(i);
+
+          if(restart == 0){
+            if(count==0){
+              if(letter==letter2){
+                count=2;
+              
+	      }else{
+          }
+            
+	    }else{
+              if(letter==letter2){
+                count++;
+             
+	      }else{
+                restart=1;
+                count2=0;
+              }
+            }
+          
+	  }else{
+            if(count2==0){
+              if(letter==letter2){
+                count2=2;
+              }else{
+              }
+            
+	    }else{
+              if(letter==letter2){
+                count2++;
+              
+	      }else{
+                if(count2>0){
+                  restart=0;
+                  count=0;
+                }
+              }
+            }
+          }
+        }
+        
+	if(count==0 && count2==0){
+          return 1;
+        
+	}else if(count>count2){
+          return count;
+        
+	}else{
+          return count2;
+        }
+      }
     }
-    
+
     /*
      * Exercise 9.
-     * 
+     *
      * Given two strings, return a new string built by intertwining each of the
      * characters of a and b.
      */
-    
+
     public String intertwine(String a, String b) {
-	if (a != null && b != null) {
-            String outString = "";
-            int i;
-            
-	    for (i = 0; i < a.length() && i < b.length(); i++) {
-                outString += a.charAt(i);
-                outString += b.charAt(i);
-            }
-            
-		outString += a.substring(i, a.length());
-            	outString += b.substring(i, b.length());
-            	return outString;
-        }
+      
+      String finalS = "";
+      if(a == null || b == null){
         return null;
-    }
-    
+      
+      }else{
+        int aLength = a.length();
+        int bLength = b.length();
+        
+	if(aLength > bLength){
+          for(int i = 0; i < aLength; i++){
+            
+            if(i < bLength){
+              char letter = a.charAt(i);
+              char letter2 = b.charAt(i);
+              finalS = finalS + letter + letter2;
+            
+	    }else{
+              char letter = a.charAt(i);
+              finalS = finalS + letter;
+            }
+          }
+        
+	}else{
+          for(int x = 0; x < bLength; x++){
+            
+            if(x<aLength){
+              char letter = a.charAt(x);
+              char letter2 = b.charAt(x);
+              finalS = finalS + letter + letter2;
+            
+	    }else{
+              char letter2 = b.charAt(x);
+              finalS = finalS + letter2;
+            }
+          }
+        }
+      }
+      
+     return finalS;
+  }
+
     /*
      * Exercise 10.
-     * 
+     *
      * Given a string, determine whether or not it is a palindrome.
      */
-    
+
     public boolean isPalindrome(String text) {
-	if (text != null) {
-            String reverse = "";
-            
-	    for (int i = text.length() - 1; i >= 0; i--) {
-                reverse += text.charAt(i);
-            }
-            
-		if (reverse.equals(text)) {
-                return true;
-            }
-        }
+      
+      String reverse = "";
+      if(text==null){
         return false;
+      
+      }else{
+        for(int i = text.length()-1; i >= 0; i--){
+          char a = text.charAt(i);
+          reverse += a;
+        }
+      }
+      
+     if(text.equals(reverse)){
+        return true;
+      
+     }else{
+        return false;
+      }
     }
 }
